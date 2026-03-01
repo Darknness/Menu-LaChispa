@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Interactivo - La Chispa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        .accent-font { font-family: 'Bebas Neue', cursive; }
+        .orange-glow { text-shadow: 0 0 15px rgba(255, 140, 0, 0.4); }
+        .price-box {
+            background: linear-gradient(135deg, #ff8c00 0%, #ed1c24 100%);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 4px;
+            font-weight: 800;
+        }
+        .menu-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2.5rem;
+            margin-top: 2.5rem;
+        }
+        .item-description { color: #a3a3a3; font-size: 0.85rem; line-height: 1.4; }
+        .ws-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+        .ws-btn:hover { 
+            transform: scale(1.05);
+            background-color: #128C7E;
+        }
+        #download-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 140, 0, 0.9);
+            color: black;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.7rem;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .phone-icon-container {
+            background-color: #000;
+            color: #ff8c00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="p-2 md:p-6">
+
+    <div id="download-btn" onclick="downloadMenu()">📸 DESCARGAR MENÚ</div>
+
+    <div id="menu-container" class="max-w-3xl mx-auto border-x-4 border-orange-600 bg-[#111] shadow-2xl relative overflow-hidden">
+        
+        <!-- DECORACIÓN DE FONDO -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-orange-600/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-red-600/5 rounded-full -ml-32 -mb-32 blur-3xl"></div>
+
+        <!-- ENCABEZADO -->
+        <header class="text-center py-12 px-6 relative z-10">
+            <h1 class="accent-font text-8xl md:text-9xl text-orange-500 leading-none orange-glow tracking-tighter">LA CHISPA</h1>
+            <p class="text-lg md:text-xl font-light tracking-[0.5em] uppercase mt-2 text-white/80 italic">Sabor que Enciende</p>
+            <div class="w-32 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto mt-6"></div>
+            <p class="text-[10px] mt-4 text-orange-400 font-bold uppercase tracking-[0.2em]">Haz clic en los botones para pedir por WhatsApp</p>
+        </header>
+
+        <main class="px-6 md:px-12 pb-16 space-y-12 relative z-10">
+
+            <!-- SECCIÓN: MARISCOS -->
+            <section class="menu-section !border-t-0">
+                <h2 class="accent-font text-5xl text-orange-500 text-center mb-10 italic tracking-widest uppercase">Mariscos</h2>
+                
+                <div class="space-y-10">
+                    <div class="flex justify-between items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold uppercase italic text-white leading-tight">Empanada de Camarón</h3>
+                            <p class="item-description">Rellena de camarones frescos, cebolla morada, jitomate y cilantro.</p>
+                            <a href="https://wa.me/5516109449?text=Hola%20La%20Chispa,%20me%20gustaría%20pedir%20una%20Empanada%20de%20Camarón" class="ws-btn">PEDIR AHORA</a>
+                        </div>
+                        <span class="price-box shrink-0 mt-1">$35</span>
+                    </div>
+
+                    <div class="flex justify-between items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold uppercase italic text-white leading-tight">Pescadito Frito</h3>
+                            <p class="item-description">Filete de pescado capeado con la receta crujiente de la casa.</p>
+                            <a href="https://wa.me/5516109449?text=Hola%20La%20Chispa,%20me%20gustaría%20pedir%20un%20Pescadito%20Frito" class="ws-btn">PEDIR AHORA</a>
+                        </div>
+                        <span class="price-box shrink-0 mt-1">$35</span>
+                    </div>
+
+                    <!-- COCTEL -->
+                    <div class="bg-gradient-to-r from-orange-600/10 to-transparent p-6 rounded-2xl border-l-4 border-orange-500">
+                        <h3 class="accent-font text-3xl uppercase text-orange-500 mb-4 tracking-wider">Coctel de Camarón</h3>
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                                <div>
+                                    <h4 class="font-bold text-xs uppercase text-white">Chico</h4>
+                                    <a href="https://wa.me/5516109449?text=Hola%20La%20Chispa,%20quiero%20un%20Coctel%20de%20Camarón%20Chico" class="text-[10px] text-green-400 font-bold underline">PEDIR CHICO</a>
+                                </div>
+                                <span class="font-bold text-lg text-orange-400">$70</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                                <div>
+                                    <h4 class="font-bold text-xs uppercase text-white">Mediano</h4>
+                                    <a href="https://wa.me/5516109449?text=Hola%20La%20Chispa,%20quiero%20un%20Coctel%20de%20Camarón%20Mediano" class="text-[10px] text-green-400 font-bold underline">PEDIR MEDIANO</a>
+                                </div>
+                                <span class="font-bold text-lg text-orange-400">$90</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-bold text-xs uppercase text-white">Grande</h4>
+                                    <a href="https://wa.me/5516109449?text=Hola%20La%20Chispa,%20quiero%20un%20Coctel%20de%20Camarón%20Grande" class="text-[10px] text-green-400 font-bold underline">PEDIR GRANDE</a>
+                                </div>
+                                <span class="font-bold text-lg text-orange-400">$140</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: YAKIMECHI -->
+            <section class="menu-section">
+                <h2 class="accent-font text-5xl text-orange-500 text-center mb-8 uppercase tracking-widest">Yakimechi</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="p-4 bg-white/5 border border-white/10 rounded-xl flex justify-between items-center">
+                        <div>
+                            <span class="font-bold uppercase tracking-widest text-orange-400">Con Camarones</span>
+                            <p class="item-description italic mb-2">Arroz frito con camarón y vegetales.</p>
+                            <a href="https://wa.me/5516109449?text=Hola%20La%20Chispa,%20quiero%20un%20Yakimechi%20de%20Camarón" class="ws-btn">PEDIR</a>
+                        </div>
+                        <span class="text-2xl font-black text-white">$90</span>
+                    </div>
+
+                    <div class="p-4 bg-white/5 border border-white/10 rounded-xl flex justify-between items-center">
+                        <div>
+                            <span class="font-bold uppercase tracking-widest text-orange-400">Con Carne de Res</span>
+                            <p class="item-description italic mb-2">Salteado con finos cortes de res.</p>
+                            <a href="https://wa.me/5516109449?text=Hola%20La%20Chispa,%20quiero%20un%20Yakimechi%20de%20Res" class="ws-btn">PEDIR</a>
+                        </div>
+                        <span class="text-2xl font-black text-white">$70</span>
+                    </div>
+
+                    <div class="p-4 bg-white/5 border border-white/10 rounded-xl flex justify-between items-center">
+                        <div>
+                            <span class="font-bold uppercase tracking-widest text-orange-400">De Verduras</span>
+                            <p class="item-description italic mb-2">Mix de vegetales crujientes.</p>
+                            <a href="https://wa.me/5516109449?text=Hola%20La%20Chispa,%20quiero%20un%20Yakimechi%20de%20Verduras" class="ws-btn">PEDIR</a>
+                        </div>
+                        <span class="text-2xl font-black text-white">$50</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: CREPAS DULCES -->
+            <section class="menu-section">
+                <h2 class="accent-font text-5xl text-orange-500 text-center mb-8 uppercase tracking-widest">Crepas Dulces</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Fila 1 -->
+                    <div>
+                        <div class="flex justify-between font-black text-orange-500 border-b border-orange-500/30 pb-1">
+                            <span>LA CHISPA</span>
+                            <span class="text-white">$50</span>
+                        </div>
+                        <p class="item-description italic">Fresa, queso crema y Lechera.</p>
+                        <a href="https://wa.me/5516109449?text=Pedido:%20Crepa%20La%20Chispa" class="ws-btn">PEDIR</a>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-black text-orange-500 border-b border-white/10 pb-1">
+                            <span>EL TOBY</span>
+                            <span class="text-white">$50</span>
+                        </div>
+                        <p class="item-description italic">Nutella, fresa y queso crema.</p>
+                        <a href="https://wa.me/5516109449?text=Pedido:%20Crepa%20El%20Toby" class="ws-btn">PEDIR</a>
+                    </div>
+                    <!-- Fila 2 -->
+                    <div>
+                        <div class="flex justify-between font-black text-orange-500 border-b border-white/10 pb-1">
+                            <span>LA JUSTINA</span>
+                            <span class="text-white">$50</span>
+                        </div>
+                        <p class="item-description italic">Plátano, Nutella y queso crema.</p>
+                        <a href="https://wa.me/5516109449?text=Pedido:%20Crepa%20La%20Justina" class="ws-btn">PEDIR</a>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-black text-orange-500 border-b border-white/10 pb-1">
+                            <span>LE CHETO</span>
+                            <span class="text-white">$50</span>
+                        </div>
+                        <p class="item-description italic">Frutos rojos, queso crema y Nutella.</p>
+                        <a href="https://wa.me/5516109449?text=Pedido:%20Crepa%20Le%20Cheto" class="ws-btn">PEDIR</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: CREPAS SALADAS / OTRAS -->
+            <section class="menu-section">
+                <h2 class="accent-font text-5xl text-orange-500 text-center mb-8 uppercase tracking-widest">Variedades Especiales</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="flex justify-between font-black text-orange-500 border-b border-white/10 pb-1">
+                            <span>LA TOTIS</span>
+                            <span class="text-white">$50</span>
+                        </div>
+                        <p class="item-description italic">Durazno en almíbar con Lechera.</p>
+                        <a href="https://wa.me/5516109449?text=Pedido:%20Crepa%20La%20Totis" class="ws-btn">PEDIR</a>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-black text-orange-500 border-b border-white/10 pb-1">
+                            <span>MAXQIN</span>
+                            <span class="text-white">$80</span>
+                        </div>
+                        <p class="item-description italic">Queso manchego fundido con jamón.</p>
+                        <a href="https://wa.me/5516109449?text=Pedido:%20Crepa%20Maxqin" class="ws-btn">PEDIR</a>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-black text-orange-500 border-b border-white/10 pb-1">
+                            <span>LA KELLY</span>
+                            <span class="text-white">$90</span>
+                        </div>
+                        <p class="item-description italic">Peperoni, queso manchego y salsa pizza.</p>
+                        <a href="https://wa.me/5516109449?text=Pedido:%20Crepa%20La%20Kelly" class="ws-btn">PEDIR</a>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-black text-orange-500 border-b border-white/10 pb-1">
+                            <span>DENVER</span>
+                            <span class="text-white">$90</span>
+                        </div>
+                        <p class="item-description italic">Jamón, piña y queso manchego derretido.</p>
+                        <a href="https://wa.me/5516109449?text=Pedido:%20Crepa%20Denver" class="ws-btn">PEDIR</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER: CONTACTO Y HORARIOS -->
+        <footer class="bg-gradient-to-t from-orange-700 to-orange-600 text-black p-12 text-center">
+            <h3 class="accent-font text-5xl mb-8">¡HAZ TU PEDIDO!</h3>
+            
+            <div class="flex flex-col gap-4 items-center mb-8">
+                <a href="https://wa.me/5516109449" class="flex items-center gap-4 bg-black/10 p-2 pr-6 rounded-full w-full max-w-sm hover:bg-black/20 transition-all">
+                    <div class="phone-icon-container">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                    </div>
+                    <span class="font-black text-xl tracking-tighter">55 1610 9449</span>
+                </a>
+
+                <a href="https://wa.me/5517850955" class="flex items-center gap-4 bg-black/10 p-2 pr-6 rounded-full w-full max-w-sm hover:bg-black/20 transition-all">
+                    <div class="phone-icon-container">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 12.18 2 5V3z"></path></svg>
+                    </div>
+                    <span class="font-black text-xl tracking-tighter">55 1785 0955</span>
+                </a>
+            </div>
+
+            <div class="mt-4 pt-8 border-t border-black/20">
+                <p class="font-black uppercase tracking-[0.3em] text-xs mb-1">Sábados y Domingos</p>
+                <p class="text-xl font-bold uppercase tracking-tighter italic">11:00 AM - 05:00 PM</p>
+                <p class="mt-6 font-black italic bg-black text-orange-500 inline-block px-6 py-2 rounded shadow-2xl">SERVICIO A DOMICILIO</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function downloadMenu() {
+            const btn = document.getElementById('download-btn');
+            btn.style.display = 'none';
+            const wsButtons = document.querySelectorAll('.ws-btn');
+            wsButtons.forEach(b => b.style.display = 'none');
+
+            html2canvas(document.querySelector("#menu-container"), {
+                backgroundColor: "#0a0a0a",
+                scale: 2,
+                useCORS: true
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'Menu_La_Chispa_Completo.png';
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+                btn.style.display = 'block';
+                wsButtons.forEach(b => b.style.display = 'inline-flex');
+            });
+        }
+    </script>
+</body>
+</html>
