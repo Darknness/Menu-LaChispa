@@ -1,0 +1,98 @@
+[
+  {
+    "nombre": "La Totis",
+    "precio": "50.00",
+    "descripcion": "Suave y frutal: Dulce combinación de Lechera con láminas de durazno en almíbar.",
+    "categoria": "Crepas Dulces"
+  },
+  {
+    "nombre": "La Justina",
+    "precio": "50.00",
+    "descripcion": "Clásico irresistible: La mezcla perfecta de plátano fresco, Nutella y una base de queso crema.",
+    "categoria": "Crepas Dulces"
+  },
+  {
+    "nombre": "La Chispa",
+    "precio": "50.00",
+    "descripcion": "Nuestra especialidad: Fresas naturales con queso crema, bañadas con el toque dulce de la Lechera.",
+    "categoria": "Crepas Dulces"
+  },
+  {
+    "nombre": "Le Cheto",
+    "precio": "50.00",
+    "descripcion": "Explosión de sabor: Frutos rojos seleccionados, queso crema y una capa de Nutella.",
+    "categoria": "Crepas Dulces"
+  },
+  {
+    "nombre": "El Toby",
+    "precio": "50.00",
+    "descripcion": "Tentación de chocolate: Nutella cremosa con rodajas de fresa natural y la suavidad del queso crema.",
+    "categoria": "Crepas Dulces"
+  },
+  {
+    "nombre": "La Kelly",
+    "precio": "80.00",
+    "descripcion": "Estilo italiano: Peperoni con queso manchego derretido y nuestra salsa de tomate artesanal.",
+    "categoria": "Crepas Saladas"
+  },
+  {
+    "nombre": "Denver",
+    "precio": "90.00",
+    "descripcion": "Sabor tropical: Una explosión de queso manchego fundido con jamón seleccionado y trozos de piña.",
+    "categoria": "Crepas Saladas"
+  },
+  {
+    "nombre": "Maxqin",
+    "precio": "80.00",
+    "descripcion": "Sabor clásico y confiable: La mezcla perfecta de queso manchego derretido con jamón de pavo.",
+    "categoria": "Crepas Saladas"
+  },
+  {
+    "nombre": "Coctel de Camarón Chico",
+    "precio": "70.00",
+    "descripcion": "El antojo perfecto: Camarones frescos en nuestra salsa coctelera artesanal con aguacate y toque cítrico.",
+    "categoria": "Mariscos"
+  },
+  {
+    "nombre": "Coctel de Camarón Mediano",
+    "precio": "90.00",
+    "descripcion": "Sabor equilibrado: Porción ideal de camarón firme, cilantro, cebolla morada y abundante aguacate premium.",
+    "categoria": "Mariscos"
+  },
+  {
+    "nombre": "Coctel de Camarón Grande",
+    "precio": "140.00",
+    "descripcion": "¡Para los amantes del mar!: Nuestra copa más generosa cargada de camarón, aguacate y el sazón secreto de la casa.",
+    "categoria": "Mariscos"
+  },
+  {
+    "nombre": "Pescadito Frito",
+    "precio": "35.00",
+    "descripcion": "Crocante por fuera y suave por dentro: Filete de pescado capeado con la receta secreta de La Chispa.",
+    "categoria": "Mariscos"
+  },
+  {
+    "nombre": "Empanada de Camarón",
+    "precio": "35.00",
+    "descripcion": "Crujiente y doradita: Rellena de camarones frescos, cebolla morada, jitomate y cilantro picado.",
+    "categoria": "Mariscos"
+  },
+  {
+    "nombre": "Yakimechi con Camarones",
+    "precio": "90.00",
+    "descripcion": "Arroz frito al estilo oriental con camarón selecto y vegetales frescos de temporada.",
+    "categoria": "YAKIMECHI"
+  },
+  {
+    "nombre": "Yakimechi con Verduras",
+    "precio": "50.00",
+    "descripcion": "Mix de verduras crujientes salteadas al wok con nuestro arroz sazonado.",
+    "categoria": "YAKIMECHI"
+  },
+  {
+    "nombre": "Yakimechi con Carne de Res",
+    "precio": "70.00",
+    "descripcion": "Tradicional receta de arroz frito salteado con finos cortes de res y un toque de soya.",
+    "categoria": "YAKIMECHI"
+  }
+]

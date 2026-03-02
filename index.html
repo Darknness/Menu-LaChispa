@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Chispa - Menú Completo</title>
+    <title>La Chispa - Menú Dinámico</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Colores base según tus categorías en la DB */
             --mariscos: #00d2ff;
             --yakimechi: #ff6a00;
             --dulce: #ff00ff;
             --salado: #22c55e;
+            --default: #ffa500;
         }
         body {
             font-family: 'Montserrat', sans-serif;
@@ -27,10 +29,11 @@
             transition: all 0.3s ease;
         }
         
+        /* Clases dinámicas de borde según categoría */
         .sec-mariscos .menu-item.active { border-left-color: var(--mariscos); box-shadow: 0 0 15px rgba(0, 210, 255, 0.1); }
         .sec-yakimechi .menu-item.active { border-left-color: var(--yakimechi); box-shadow: 0 0 15px rgba(255, 106, 0, 0.1); }
-        .sec-dulce .menu-item.active { border-left-color: var(--dulce); box-shadow: 0 0 15px rgba(255, 0, 255, 0.1); }
-        .sec-salado .menu-item.active { border-left-color: var(--salado); box-shadow: 0 0 15px rgba(34, 197, 94, 0.1); }
+        .sec-crepas-dulces .menu-item.active, .sec-dulce .menu-item.active { border-left-color: var(--dulce); box-shadow: 0 0 15px rgba(255, 0, 255, 0.1); }
+        .sec-crepas-saladas .menu-item.active, .sec-salado .menu-item.active { border-left-color: var(--salado); box-shadow: 0 0 15px rgba(34, 197, 94, 0.1); }
 
         .qty-input {
             width: 50px;
@@ -80,7 +83,6 @@
 
     <div class="max-w-xl mx-auto min-h-screen bg-[#0d0d0d] shadow-2xl">
         
-        <!-- HEADER -->
         <header class="pt-8 pb-6 text-center px-4 bg-gradient-to-b from-orange-500/10 to-transparent">
             <div class="logo-container mb-4">
                 <img src="La%20Chispa%20Logo.png" 
@@ -91,227 +93,11 @@
             <p class="text-[10px] tracking-[0.4em] text-gray-400 uppercase font-bold">¡El sabor que te hace volver!</p>
         </header>
 
-        <main class="px-4 space-y-10 pb-20">
-
-            <!-- MARISCOS -->
-            <section class="sec-mariscos">
-                <h2 class="accent-font text-3xl mb-4 flex items-center gap-3" style="color: var(--mariscos)">
-                    <span>🍤</span> DELICIAS DEL MAR
-                </h2>
-                <div class="space-y-3">
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Empanada de Camarón" data-price="35">
-                        <input type="checkbox" class="w-6 h-6 accent-[#00d2ff]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic">EMPANADA DE CAMARÓN</h3>
-                            <p class="desc-text mt-1">Crujiente y doradita, rellena de camarón perfectamente sazonado.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#00d2ff] font-black mb-1">$35</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Pescadito Frito" data-price="35">
-                        <input type="checkbox" class="w-6 h-6 accent-[#00d2ff]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic">PESCADITO FRITO</h3>
-                            <p class="desc-text mt-1">Filete fresco con nuestro capeado secreto, crujiente por fuera.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#00d2ff] font-black mb-1">$35</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-2">
-                        <div class="menu-item p-3 rounded-r-xl flex items-center gap-4" data-name="Coctel Camarón Chico" data-price="70">
-                            <input type="checkbox" class="w-6 h-6 accent-[#00d2ff]" onchange="toggleItem(this)">
-                            <div class="flex-1 font-bold text-xs uppercase">Coctel Camarón (Chico)</div>
-                            <div class="text-right">
-                                <span class="text-[#00d2ff] font-black mr-2">$70</span>
-                                <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                            </div>
-                        </div>
-                        <div class="menu-item p-3 rounded-r-xl flex items-center gap-4" data-name="Coctel Camarón Mediano" data-price="90">
-                            <input type="checkbox" class="w-6 h-6 accent-[#00d2ff]" onchange="toggleItem(this)">
-                            <div class="flex-1 font-bold text-xs uppercase">Coctel Camarón (Mediano)</div>
-                            <div class="text-right">
-                                <span class="text-[#00d2ff] font-black mr-2">$90</span>
-                                <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                            </div>
-                        </div>
-                        <div class="menu-item p-3 rounded-r-xl flex items-center gap-4" data-name="Coctel Camarón Grande" data-price="140">
-                            <input type="checkbox" class="w-6 h-6 accent-[#00d2ff]" onchange="toggleItem(this)">
-                            <div class="flex-1 font-bold text-xs uppercase">Coctel Camarón (Grande)</div>
-                            <div class="text-right">
-                                <span class="text-[#00d2ff] font-black mr-2">$140</span>
-                                <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- YAKIMECHI -->
-            <section class="sec-yakimechi">
-                <h2 class="accent-font text-3xl mb-4 flex items-center gap-3" style="color: var(--yakimechi)">
-                    <span>🔥</span> YAKIMECHI AL WOK
-                </h2>
-                <div class="space-y-3">
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Yakimechi Camarón" data-price="90">
-                        <input type="checkbox" class="w-6 h-6 accent-[#ff6a00]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic uppercase">Yakimechi Camarón</h3>
-                            <p class="desc-text mt-1">Arroz frito tradicional con generosos camarones y vegetales.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#ff6a00] font-black mb-1">$90</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Yakimechi Res" data-price="70">
-                        <input type="checkbox" class="w-6 h-6 accent-[#ff6a00]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic uppercase">Yakimechi Res</h3>
-                            <p class="desc-text mt-1">Arroz salteado con finos cortes de res y un toque oriental.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#ff6a00] font-black mb-1">$70</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Yakimechi Verduras" data-price="50">
-                        <input type="checkbox" class="w-6 h-6 accent-[#ff6a00]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic uppercase">Yakimechi Verduras</h3>
-                            <p class="desc-text mt-1">Mezcla ligera y deliciosa de arroz con vegetales frescos.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#ff6a00] font-black mb-1">$50</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CREPAS DULCES -->
-            <section class="sec-dulce">
-                <h2 class="accent-font text-3xl mb-4 flex items-center gap-3" style="color: var(--dulce)">
-                    <span>🍓</span> CREPAS DULCES
-                </h2>
-                <div class="grid grid-cols-1 gap-3">
-                    <!-- La Chispa -->
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Crepa La Chispa" data-price="50">
-                        <input type="checkbox" class="w-6 h-6 accent-[#ff00ff]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic">LA CHISPA</h3>
-                            <p class="desc-text mt-1">Fresa, Queso Crema y Lechera.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#ff00ff] font-black mb-1">$50</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                    <!-- El Toby -->
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Crepa El Toby" data-price="50">
-                        <input type="checkbox" class="w-6 h-6 accent-[#ff00ff]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic">EL TOBY</h3>
-                            <p class="desc-text mt-1">Nutella, Fresa y Queso Crema.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#ff00ff] font-black mb-1">$50</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                    <!-- La Justina -->
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Crepa La Justina" data-price="50">
-                        <input type="checkbox" class="w-6 h-6 accent-[#ff00ff]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic">LA JUSTINA</h3>
-                            <p class="desc-text mt-1">Plátano, Nutella y Queso Crema.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#ff00ff] font-black mb-1">$50</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                    <!-- Le Cheto -->
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Crepa Le Cheto" data-price="50">
-                        <input type="checkbox" class="w-6 h-6 accent-[#ff00ff]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic">LE CHETO</h3>
-                            <p class="desc-text mt-1">Frutos Rojos, Queso y Nutella.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#ff00ff] font-black mb-1">$50</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                    <!-- La Totis -->
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Crepa La Totis" data-price="50">
-                        <input type="checkbox" class="w-6 h-6 accent-[#ff00ff]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic">LA TOTIS</h3>
-                            <p class="desc-text mt-1">Durazno y Lechera.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#ff00ff] font-black mb-1">$50</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CREPAS SALADAS -->
-            <section class="sec-salado">
-                <h2 class="accent-font text-3xl mb-4 flex items-center gap-3" style="color: var(--salado)">
-                    <span>🧀</span> CREPAS SALADAS
-                </h2>
-                <div class="grid grid-cols-1 gap-3">
-                    <!-- Maxqin -->
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Crepa Maxqin" data-price="80">
-                        <input type="checkbox" class="w-6 h-6 accent-[#22c55e]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic uppercase">Maxqin</h3>
-                            <p class="desc-text mt-1">Queso Manchego y Jamón.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#22c55e] font-black mb-1">$80</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                    <!-- La Kelly -->
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Crepa La Kelly" data-price="90">
-                        <input type="checkbox" class="w-6 h-6 accent-[#22c55e]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic uppercase">La Kelly</h3>
-                            <p class="desc-text mt-1">Peperoni, Queso Manchego y Salsa Pizza.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#22c55e] font-black mb-1">$90</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                    <!-- Denver -->
-                    <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" data-name="Crepa Denver" data-price="90">
-                        <input type="checkbox" class="w-6 h-6 accent-[#22c55e]" onchange="toggleItem(this)">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-sm italic uppercase">Denver</h3>
-                            <p class="desc-text mt-1">Jamón, Piña y Queso Manchego.</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[#22c55e] font-black mb-1">$90</div>
-                            <input type="number" value="1" min="1" max="10" class="qty-input" disabled onchange="updateTotal()">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+        <main id="contenedor-menu" class="px-4 space-y-10 pb-20">
+            <div class="text-center py-10 text-gray-500">Cargando delicias...</div>
         </main>
     </div>
 
-    <!-- BARRA DE COMPRA -->
     <div id="cart-bar" class="p-5">
         <div class="max-w-xl mx-auto flex justify-between items-center px-4">
             <div>
@@ -325,6 +111,67 @@
     </div>
 
     <script>
+        // 1. CARGA DINÁMICA DESDE EL JSON GENERADO POR TU DB
+        async function cargarMenu() {
+            try {
+                const respuesta = await fetch('productos.json');
+                const productos = await respuesta.json();
+                const contenedor = document.getElementById('contenedor-menu');
+                contenedor.innerHTML = ''; // Limpiar mensaje de carga
+
+                // Obtener categorías únicas presentes en tu tabla 'productos' 
+                const categorias = [...new Set(productos.map(p => p.categoria))];
+
+                categorias.forEach(cat => {
+                    const section = document.createElement('section');
+                    // Crear clase compatible con CSS (ej: "Crepas Dulces" -> "crepas-dulces")
+                    const claseCat = cat.toLowerCase().replace(/\s+/g, '-');
+                    section.className = `sec-${claseCat} space-y-4`;
+                    
+                    // Elegir color de acento
+                    let colorAcento = `var(--default)`;
+                    if(claseCat.includes('marisco')) colorAcento = `var(--mariscos)`;
+                    if(claseCat.includes('yakimechi')) colorAcento = `var(--yakimechi)`;
+                    if(claseCat.includes('dulce')) colorAcento = `var(--dulce)`;
+                    if(claseCat.includes('salado')) colorAcento = `var(--salado)`;
+
+                    section.innerHTML = `
+                        <h2 class="accent-font text-3xl mb-4 flex items-center gap-3" style="color: ${colorAcento}">
+                            ${cat.toUpperCase()}
+                        </h2>
+                        <div class="grid gap-3"></div>
+                    `;
+
+                    const grid = section.querySelector('div');
+
+                    // Filtrar productos de esta categoría 
+                    productos.filter(p => p.categoria === cat).forEach(p => {
+                        grid.innerHTML += `
+                            <div class="menu-item p-4 rounded-r-xl flex items-center gap-4" 
+                                 data-name="${p.nombre}" data-price="${p.precio}">
+                                <input type="checkbox" class="w-6 h-6" onchange="toggleItem(this)">
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-sm italic uppercase">${p.nombre}</h3>
+                                    <p class="desc-text mt-1">${p.descripcion || ''}</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-black mb-1" style="color: ${colorAcento}">$${p.precio}</div>
+                                    <input type="number" value="1" min="1" max="${p.stock || 10}" 
+                                           class="qty-input" disabled onchange="updateTotal()">
+                                </div>
+                            </div>
+                        `;
+                    });
+                    contenedor.appendChild(section);
+                });
+            } catch (error) {
+                console.error("Error al cargar productos.json:", error);
+                document.getElementById('contenedor-menu').innerHTML = 
+                    `<p class="text-red-500 text-center">Error al conectar con la base de datos local.</p>`;
+            }
+        }
+
+        // 2. LÓGICA DEL CARRITO
         function toggleItem(cb) {
             const card = cb.closest('.menu-item');
             const input = card.querySelector('.qty-input');
@@ -355,6 +202,7 @@
             document.getElementById('cart-bar').style.display = itemsCount > 0 ? 'block' : 'none';
         }
 
+        // 3. ENVÍO A WHATSAPP
         function sendWhatsApp() {
             let msg = "🐶 *PEDIDO LA CHISPA* 🐶\n\n";
             let total = 0;
@@ -373,7 +221,9 @@
             msg += `\n\n_¡Gracias por tu pedido!_`;
             window.open(`https://wa.me/5516109449?text=${encodeURIComponent(msg)}`, '_blank');
         }
+
+        // Iniciar carga al abrir
+        window.onload = cargarMenu;
     </script>
 </body>
 </html>
-
