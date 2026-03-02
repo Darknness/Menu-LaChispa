@@ -1,0 +1,12 @@
+# Archivos de configuración con contraseñas
+generar_menu.js
+.env
+
+# Carpetas de librerías de Node
+node_modules/
+package.json
+package-lock.json
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
