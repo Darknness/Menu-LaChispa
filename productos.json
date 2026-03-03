@@ -1,14 +1,38 @@
 [
   {
-    "nombre": "La Totis",
-    "precio": "50.00",
-    "descripcion": "Suave y frutal: Dulce combinación de Lechera con láminas de durazno en almíbar.",
-    "categoria": "Crepas Dulces"
+    "nombre": "Frappe Taro (16oz)",
+    "precio": "70.00",
+    "descripcion": "Exótico, vibrante y místico. Un deleite color lavanda con notas sutiles a vainilla y galleta que te transportará a un mundo de sabor único. Personalízalo con leche entera o deslactosada.",
+    "categoria": "Bebidas"
   },
   {
-    "nombre": "La Justina",
+    "nombre": "Frappe Capuchino (16oz)",
+    "precio": "70.00",
+    "descripcion": "El despertar de tus sentidos. La intensidad del café premium se funde con la cremosidad de la leche en un frappé equilibrado. Disfrútalo con leche entera o deslactosada.",
+    "categoria": "Bebidas"
+  },
+  {
+    "nombre": "Frappe Nescafé (16oz)",
+    "precio": "70.00",
+    "descripcion": "Tradición que refresca. El sabor que ya conoces y amas, transformado en una experiencia bajo cero y extra cremosa. No olvides pedir tu leche favorita: entera o deslactosada.",
+    "categoria": "Bebidas"
+  },
+  {
+    "nombre": "Frappe Cookies and Cream (16oz)",
+    "precio": "70.00",
+    "descripcion": "El clásico irresistible. Trozos crujientes de galleta de chocolate sumergidos en un remolino de leche fría y crema. ¿Cómo lo prefieres hoy? Elige entre leche entera o deslactosada.",
+    "categoria": "Bebidas"
+  },
+  {
+    "nombre": "Frappe Fresas con Crema (16oz)",
+    "precio": "70.00",
+    "descripcion": "Un abrazo helado de nostalgia. Fresas naturales seleccionadas mezcladas en una base cremosa y suave. Pídelo con tu leche favorita: entera para más cremosidad o deslactosada para un gusto ligero.",
+    "categoria": "Bebidas"
+  },
+  {
+    "nombre": "El Toby",
     "precio": "50.00",
-    "descripcion": "Clásico irresistible: La mezcla perfecta de plátano fresco, Nutella y una base de queso crema.",
+    "descripcion": "Tentación de chocolate: Nutella cremosa con rodajas de fresa natural y la suavidad del queso crema.",
     "categoria": "Crepas Dulces"
   },
   {
@@ -24,10 +48,22 @@
     "categoria": "Crepas Dulces"
   },
   {
-    "nombre": "El Toby",
+    "nombre": "La Totis",
     "precio": "50.00",
-    "descripcion": "Tentación de chocolate: Nutella cremosa con rodajas de fresa natural y la suavidad del queso crema.",
+    "descripcion": "Suave y frutal: Dulce combinación de Lechera con láminas de durazno en almíbar.",
     "categoria": "Crepas Dulces"
+  },
+  {
+    "nombre": "La Justina",
+    "precio": "50.00",
+    "descripcion": "Clásico irresistible: La mezcla perfecta de plátano fresco, Nutella y una base de queso crema.",
+    "categoria": "Crepas Dulces"
+  },
+  {
+    "nombre": "Maxqin",
+    "precio": "80.00",
+    "descripcion": "Sabor clásico y confiable: La mezcla perfecta de queso manchego derretido con jamón de pavo.",
+    "categoria": "Crepas Saladas"
   },
   {
     "nombre": "La Kelly",
@@ -39,12 +75,6 @@
     "nombre": "Denver",
     "precio": "90.00",
     "descripcion": "Sabor tropical: Una explosión de queso manchego fundido con jamón seleccionado y trozos de piña.",
-    "categoria": "Crepas Saladas"
-  },
-  {
-    "nombre": "Maxqin",
-    "precio": "80.00",
-    "descripcion": "Sabor clásico y confiable: La mezcla perfecta de queso manchego derretido con jamón de pavo.",
     "categoria": "Crepas Saladas"
   },
   {
