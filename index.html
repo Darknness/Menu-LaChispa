@@ -13,6 +13,7 @@
             --yakimechi: #ff6a00;
             --dulce: #ff00ff;
             --salado: #22c55e;
+            --bebidas: #8b4513;
             --default: #ffa500;
         }
         body {
@@ -134,6 +135,7 @@
                     if(claseCat.includes('yakimechi')) colorAcento = `var(--yakimechi)`;
                     if(claseCat.includes('dulce')) colorAcento = `var(--dulce)`;
                     if(claseCat.includes('salado')) colorAcento = `var(--salado)`;
+                    if(claseCat.includes('bebidas')) colorAcento = `var(--bebidas)`;
 
                     section.innerHTML = `
                         <h2 class="accent-font text-3xl mb-4 flex items-center gap-3" style="color: ${colorAcento}">
