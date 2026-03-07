@@ -1,8 +1,20 @@
 [
   {
+    "nombre": "Frappe Cookies and Cream (16oz)",
+    "precio": "70.00",
+    "descripcion": "El clásico irresistible. Trozos crujientes de galleta de chocolate sumergidos en un remolino de leche fría y crema. ¿Cómo lo prefieres hoy? Elige entre leche entera o deslactosada.",
+    "categoria": "Bebidas"
+  },
+  {
     "nombre": "Frappe Taro (16oz)",
     "precio": "70.00",
     "descripcion": "Exótico, vibrante y místico. Un deleite color lavanda con notas sutiles a vainilla y galleta que te transportará a un mundo de sabor único. Personalízalo con leche entera o deslactosada.",
+    "categoria": "Bebidas"
+  },
+  {
+    "nombre": "Frappe Fresas con Crema (16oz)",
+    "precio": "70.00",
+    "descripcion": "Un abrazo helado de nostalgia. Fresas naturales seleccionadas mezcladas en una base cremosa y suave. Pídelo con tu leche favorita: entera para más cremosidad o deslactosada para un gusto ligero.",
     "categoria": "Bebidas"
   },
   {
@@ -18,16 +30,10 @@
     "categoria": "Bebidas"
   },
   {
-    "nombre": "Frappe Cookies and Cream (16oz)",
-    "precio": "70.00",
-    "descripcion": "El clásico irresistible. Trozos crujientes de galleta de chocolate sumergidos en un remolino de leche fría y crema. ¿Cómo lo prefieres hoy? Elige entre leche entera o deslactosada.",
-    "categoria": "Bebidas"
-  },
-  {
-    "nombre": "Frappe Fresas con Crema (16oz)",
-    "precio": "70.00",
-    "descripcion": "Un abrazo helado de nostalgia. Fresas naturales seleccionadas mezcladas en una base cremosa y suave. Pídelo con tu leche favorita: entera para más cremosidad o deslactosada para un gusto ligero.",
-    "categoria": "Bebidas"
+    "nombre": "Le Cheto",
+    "precio": "50.00",
+    "descripcion": "Explosión de sabor: Frutos rojos seleccionados, queso crema y una capa de Nutella.",
+    "categoria": "Crepas Dulces"
   },
   {
     "nombre": "El Toby",
@@ -42,9 +48,9 @@
     "categoria": "Crepas Dulces"
   },
   {
-    "nombre": "Le Cheto",
+    "nombre": "La Justina",
     "precio": "50.00",
-    "descripcion": "Explosión de sabor: Frutos rojos seleccionados, queso crema y una capa de Nutella.",
+    "descripcion": "Clásico irresistible: La mezcla perfecta de plátano fresco, Nutella y una base de queso crema.",
     "categoria": "Crepas Dulces"
   },
   {
@@ -54,10 +60,10 @@
     "categoria": "Crepas Dulces"
   },
   {
-    "nombre": "La Justina",
-    "precio": "50.00",
-    "descripcion": "Clásico irresistible: La mezcla perfecta de plátano fresco, Nutella y una base de queso crema.",
-    "categoria": "Crepas Dulces"
+    "nombre": "Denver",
+    "precio": "90.00",
+    "descripcion": "Sabor tropical: Una explosión de queso manchego fundido con jamón seleccionado y trozos de piña.",
+    "categoria": "Crepas Saladas"
   },
   {
     "nombre": "Maxqin",
@@ -72,10 +78,16 @@
     "categoria": "Crepas Saladas"
   },
   {
-    "nombre": "Denver",
-    "precio": "90.00",
-    "descripcion": "Sabor tropical: Una explosión de queso manchego fundido con jamón seleccionado y trozos de piña.",
-    "categoria": "Crepas Saladas"
+    "nombre": "Taco Gobernador",
+    "precio": "70.00",
+    "descripcion": "Un clásico sinaloense: camarones salteados con cebolla y chiles, servidos sobre una tortilla con queso fundido que se derrite en tu boca.",
+    "categoria": "mariscos"
+  },
+  {
+    "nombre": "Pescadilla",
+    "precio": "20.00",
+    "descripcion": "Auténtica tortilla de maíz rellena de nuestro guiso especial de pescado, frita a fuego lento hasta quedar bien doradita y crujiente.",
+    "categoria": "mariscos"
   },
   {
     "nombre": "Coctel de Camarón Chico",
@@ -106,6 +118,18 @@
     "precio": "35.00",
     "descripcion": "Crujiente y doradita: Rellena de camarones frescos, cebolla morada, jitomate y cilantro picado.",
     "categoria": "Mariscos"
+  },
+  {
+    "nombre": "Orden de 3 Tacos Gobernador",
+    "precio": "200.00",
+    "descripcion": "El banquete completo para los amantes del camarón. Tres piezas de nuestro famoso Taco Gobernador con extra queso fundido.",
+    "categoria": "paquetes"
+  },
+  {
+    "nombre": "Orden de 3 Pescadillas",
+    "precio": "50.00",
+    "descripcion": "La combinación ideal para saciar tu antojo. Tres de nuestras pescadillas estrella, fritas al momento para garantizar esa textura crujiente.",
+    "categoria": "paquetes"
   },
   {
     "nombre": "Yakimechi con Camarones",
