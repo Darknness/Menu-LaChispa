@@ -60,12 +60,6 @@
     "categoria": "Crepas Dulces"
   },
   {
-    "nombre": "Denver",
-    "precio": "90.00",
-    "descripcion": "Sabor tropical: Una explosión de queso manchego fundido con jamón seleccionado y trozos de piña.",
-    "categoria": "Crepas Saladas"
-  },
-  {
     "nombre": "La Kelly",
     "precio": "80.00",
     "descripcion": "Estilo italiano: Peperoni con queso manchego derretido y nuestra salsa de tomate artesanal.",
@@ -78,15 +72,15 @@
     "categoria": "Crepas Saladas"
   },
   {
-    "nombre": "Coctel de Camarón Grande",
-    "precio": "140.00",
-    "descripcion": "¡Para los amantes del mar!: Nuestra copa más generosa cargada de camarón, aguacate y el sazón secreto de la casa.",
-    "categoria": "MARISCOS"
+    "nombre": "Denver",
+    "precio": "90.00",
+    "descripcion": "Sabor tropical: Una explosión de queso manchego fundido con jamón seleccionado y trozos de piña.",
+    "categoria": "Crepas Saladas"
   },
   {
-    "nombre": "Empanada de Camarón",
+    "nombre": "Pescadito Frito",
     "precio": "35.00",
-    "descripcion": "Crujiente y doradita: Rellena de camarones frescos, cebolla morada, jitomate y cilantro picado.",
+    "descripcion": "Crocante por fuera y suave por dentro: Filete de pescado capeado con la receta secreta de La Chispa.",
     "categoria": "MARISCOS"
   },
   {
@@ -108,28 +102,22 @@
     "categoria": "MARISCOS"
   },
   {
-    "nombre": "Pescadito Frito",
-    "precio": "35.00",
-    "descripcion": "Crocante por fuera y suave por dentro: Filete de pescado capeado con la receta secreta de La Chispa.",
+    "nombre": "Coctel de Camarón Grande",
+    "precio": "140.00",
+    "descripcion": "¡Para los amantes del mar!: Nuestra copa más generosa cargada de camarón, aguacate y el sazón secreto de la casa.",
     "categoria": "MARISCOS"
   },
   {
-    "nombre": "Orden de 3 Tacos Gobernador",
-    "precio": "200.00",
-    "descripcion": "El banquete completo para los amantes del camarón. Tres piezas de nuestro famoso Taco Gobernador con extra queso fundido.",
-    "categoria": "paquetes"
+    "nombre": "Empanada de Camarón",
+    "precio": "35.00",
+    "descripcion": "Crujiente y doradita: Rellena de camarones frescos, cebolla morada, jitomate y cilantro picado.",
+    "categoria": "MARISCOS"
   },
   {
     "nombre": "Orden de 3 Pescadillas",
     "precio": "50.00",
     "descripcion": "La combinación ideal para saciar tu antojo. Tres de nuestras pescadillas estrella, fritas al momento para garantizar esa textura crujiente.",
     "categoria": "paquetes"
-  },
-  {
-    "nombre": "Yakimechi con Carne de Res",
-    "precio": "70.00",
-    "descripcion": "Tradicional receta de arroz frito salteado con finos cortes de res y un toque de soya.",
-    "categoria": "YAKIMECHI"
   },
   {
     "nombre": "Yakimechi con Verduras",
@@ -141,6 +129,12 @@
     "nombre": "Yakimechi con Camarones",
     "precio": "90.00",
     "descripcion": "Arroz frito al estilo oriental con camarón selecto y vegetales frescos de temporada.",
+    "categoria": "YAKIMECHI"
+  },
+  {
+    "nombre": "Yakimechi con Carne de Res",
+    "precio": "70.00",
+    "descripcion": "Tradicional receta de arroz frito salteado con finos cortes de res y un toque de soya.",
     "categoria": "YAKIMECHI"
   }
 ]
