@@ -176,9 +176,18 @@
                 const qty = parseInt(item.querySelector('.qty-val').innerText);
                 if(qty > 0) msg += `🔥 *${qty}x* ${item.dataset.name}\n`;
             });
-            msg += `\n💰 *TOTAL A PAGAR: ${document.getElementById('total-val').innerText}*`;
-            window.open(`https://wa.me/5516109449?text=${encodeURIComponent(msg)}`, '_blank');
-        }
+    
+        msg += `\n💰 *TOTAL A PAGAR: ${document.getElementById('total-val').innerText}*`;
+        msg += `\n\n---`;
+        msg += `\n✨ *DATOS PARA TU PAGO* ✨`;
+        msg += `\n\n💳 *Pago:* TRANSFERENCIA`;
+        msg += `\n🏦 *Banco:* Banco Azteca`;
+        msg += `\n👤 *Titular:* Leticia Quiroz`;
+        msg += `\n🔢 *CLABE:* \n\`127180016009836868\``;
+        msg += `\n\n_Favor de enviar comprobante por este medio_ 🙏`;
+
+        window.open(`https://wa.me/5516109449?text=${encodeURIComponent(msg)}`, '_blank');
+    }
 
         window.onload = cargarMenu;
     </script>
