@@ -105,13 +105,6 @@
     "stock": 10
   },
   {
-    "nombre": "Coctel de Camarón Mediano",
-    "precio": "90.00",
-    "descripcion": "Sabor equilibrado: Porción ideal de camarón firme, cilantro, cebolla morada y abundante aguacate premium.",
-    "categoria": "MARISCOS",
-    "stock": 10
-  },
-  {
     "nombre": "Coctel de Camarón Grande",
     "precio": "140.00",
     "descripcion": "¡Para los amantes del mar!: Nuestra copa más generosa cargada de camarón, aguacate y el sazón secreto de la casa.",
@@ -126,6 +119,13 @@
     "stock": 10
   },
   {
+    "nombre": "Coctel de Camarón Mediano",
+    "precio": "90.00",
+    "descripcion": "Sabor equilibrado: Porción ideal de camarón firme, cilantro, cebolla morada y abundante aguacate premium.",
+    "categoria": "MARISCOS",
+    "stock": 10
+  },
+  {
     "nombre": "Combo Crepa Salada + Bebida",
     "precio": "120.00",
     "descripcion": "¿Hambre de la buena? Aquí tienes el plan perfecto: 1 Crepa Salada + 1 Bebida. 🌯 El sabor que te llena y la frescura que te acompaña.",
@@ -136,13 +136,6 @@
     "nombre": "Combo Crepa Dulce + Bebida",
     "precio": "100.00",
     "descripcion": "La pareja ideal sí existe: 1 Crepa Dulce + 1 Bebida. 🤝 Olvídate de la sed y concéntrate en el sabor. ¡Consiéntete sin remordimientos!",
-    "categoria": "PAQUETES",
-    "stock": 10
-  },
-  {
-    "nombre": "Orden de 3 Pescadillas",
-    "precio": "50.00",
-    "descripcion": "La combinación ideal para saciar tu antojo. Tres de nuestras pescadillas estrella, fritas al momento para garantizar esa textura crujiente.",
     "categoria": "PAQUETES",
     "stock": 10
   }
