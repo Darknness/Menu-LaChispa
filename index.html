@@ -171,23 +171,41 @@
         }
 
         function sendWhatsApp() {
-            let msg = "🛒 *NUEVO PEDIDO LA CHISPA*\n\n";
+            // 1. Cabecera del pedido
+            let msg = "✨ *NUEVO PEDIDO LA CHISPA* ✨\n";
+            msg += "━━━━━━━━━━━━━━━━━━━━\n\n";
+    
+            let hayProductos = false;
+
+            // 2. Listado de productos
             document.querySelectorAll('.menu-item').forEach(item => {
                 const qty = parseInt(item.querySelector('.qty-val').innerText);
-                if(qty > 0) msg += `🔥 *${qty}x* ${item.dataset.name}\n`;
+                if(qty > 0) {
+                    msg += `🔸 *${qty}x* ${item.dataset.name}\n`;
+                    hayProductos = true;
+                }
             });
-    
-        msg += `\n💰 *TOTAL A PAGAR: ${document.getElementById('total-val').innerText}*`;
-        msg += `\n\n---`;
-        msg += `\n✨ *DATOS PARA TU PAGO* ✨`;
-        msg += `\n\n💳 *Pago:* TRANSFERENCIA`;
-        msg += `\n🏦 *Banco:* Banco Azteca`;
-        msg += `\n👤 *Titular:* Leticia Quiroz`;
-        msg += `\n🔢 *CLABE:* \n\`127180016009836868\``;
-        msg += `\n\n_Favor de enviar comprobante por este medio_ 🙏`;
 
-        window.open(`https://wa.me/5516109449?text=${encodeURIComponent(msg)}`, '_blank');
-    }
+            if(!hayProductos) return; // No enviar nada si el carrito está vacío
+
+            // 3. Total y Datos de Pago
+            msg += "\n━━━━━━━━━━━━━━━━━━━━\n";
+            msg += `💰 *TOTAL A PAGAR: ${document.getElementById('total-val').innerText}*\n`;
+            msg += "━━━━━━━━━━━━━━━━━━━━\n\n";
+    
+            msg += "💳 *DATOS PARA TU PAGO*\n\n";
+            msg += "🔹 *Pago:* TRANSFERENCIA\n";
+            msg += "🔹 *Banco:* Banco Azteca\n";
+            msg += "🔹 *Titular:* Leticia Quiroz\n";
+            msg += "🔹 *CLABE:*\n";
+            msg += "127180016009836868\n\n"; // Sin caracteres extra para que el cliente pueda copiar solo el número fácil
+    
+            msg += "🙏 *Favor de enviar comprobante por este medio.*";
+
+            // 4. Abrir WhatsApp (usamos api.whatsapp.com que es más compatible)
+            const url = `https://api.whatsapp.com/send?phone=5516109449&text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
 
         window.onload = cargarMenu;
     </script>
