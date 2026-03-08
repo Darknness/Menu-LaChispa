@@ -3,73 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>La Chispa - Menú</title>
+    <title>La Chispa - Menú Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --yakimechi: #ff6a00;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
-            -webkit-tap-highlight-color: transparent;
-        }
+        :root { --yakimechi: #ff6a00; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #050505; color: #ffffff; -webkit-tap-highlight-color: transparent; }
         .accent-font { font-family: 'Bebas Neue', cursive; }
         
-        /* Estilo del Acordeón */
-        .category-header {
-            background: #111;
-            border-bottom: 1px solid #222;
-            transition: background 0.3s;
-        }
-        .category-header.active {
-            background: #1a1a1a;
-            border-bottom: 2px solid var(--yakimechi);
-        }
-        
-        .product-list {
-            display: none; /* Oculto por defecto */
-            background: #0a0a0a;
-        }
+        .category-header { background: #111; border-bottom: 1px solid #222; transition: all 0.3s; }
+        .category-header.active { background: #1a1a1a; border-bottom: 2px solid var(--yakimechi); }
+        .product-list { display: none; background: #0a0a0a; }
 
-        /* Botones de acción */
-        .qty-control {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #1a1a1a;
-            padding: 4px 8px;
-            border-radius: 12px;
-            border: 1px solid #333;
-        }
-        .btn-action {
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--yakimechi);
-        }
+        .qty-control { display: flex; align-items: center; gap: 12px; background: #1a1a1a; padding: 4px 8px; border-radius: 12px; border: 1px solid #333; }
+        .btn-action { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; color: var(--yakimechi); transition: 0.2s; }
+        .btn-action:active { transform: scale(0.9); }
+        .btn-action:disabled { opacity: 0.1; cursor: not-allowed; }
 
-        #cart-bar {
-            position: fixed;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 450px;
-            background: var(--yakimechi);
-            border-radius: 15px;
-            display: none;
-            z-index: 100;
-            box-shadow: 0 8px 25px rgba(255, 106, 0, 0.4);
+        /* Animación de número */
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); color: var(--yakimechi); }
+            100% { transform: scale(1); }
         }
+        .animate-pop { animation: pop 0.3s ease-out; }
 
-        /* Animación de flecha */
+        #cart-bar { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 450px; background: var(--yakimechi); border-radius: 15px; display: none; z-index: 100; box-shadow: 0 8px 25px rgba(255, 106, 0, 0.4); }
         .arrow { transition: transform 0.3s; }
         .active .arrow { transform: rotate(180deg); }
     </style>
@@ -77,23 +36,25 @@
 <body>
 
     <header class="py-8 text-center px-4">
-        <img src="La%20Chispa%20Logo.png" 
-             onerror="this.src='https://raw.githubusercontent.com/lucide-react/lucide/main/icons/utensils.svg'; this.style.filter='invert(1)'"
-             class="w-24 h-24 mx-auto mb-2 object-contain">
+        <img src="La%20Chispa%20Logo.png" onerror="this.src='https://raw.githubusercontent.com/lucide-react/lucide/main/icons/utensils.svg'; this.style.filter='invert(1)'" class="w-24 h-24 mx-auto mb-2 object-contain">
         <h1 class="accent-font text-5xl text-orange-500">LA CHISPA</h1>
-        <p class="text-[10px] tracking-widest text-gray-500 uppercase font-bold">Menú Digital</p>
+        <p class="text-[10px] tracking-widest text-gray-500 uppercase font-bold">Menú Digital · Sabor de Querétaro</p>
     </header>
 
-    <main id="contenedor-menu" class="pb-32">
-        </main>
+    <main id="contenedor-menu" class="pb-32"></main>
 
-    <div id="cart-bar" class="p-4">
+    <div id="cart-bar" class="p-4 shadow-2xl border border-white/10">
         <div class="flex justify-between items-center text-black">
-            <div>
-                <span id="items-count" class="font-black bg-black/20 px-2 py-1 rounded text-sm">0</span>
-                <span id="total-val" class="text-xl font-black ml-2">$0.00</span>
+            <div class="flex items-center gap-2">
+                <button onclick="clearCart()" class="bg-black/10 p-2 rounded-lg hover:bg-black/20 transition-colors" title="Limpiar Carrito">
+                    🗑️
+                </button>
+                <div>
+                    <span id="items-count" class="font-black bg-black/20 px-2 py-1 rounded text-xs">0</span>
+                    <span id="total-val" class="text-xl font-black ml-1">$0.00</span>
+                </div>
             </div>
-            <button onclick="sendWhatsApp()" class="font-black uppercase text-xs border-2 border-black px-4 py-2 rounded-lg">
+            <button onclick="sendWhatsApp()" class="font-black uppercase text-xs border-2 border-black px-4 py-2 rounded-lg bg-white/10 active:bg-black active:text-white transition-all">
                 PEDIR AHORA
             </button>
         </div>
@@ -105,38 +66,36 @@
                 const respuesta = await fetch('productos.json');
                 const productos = await respuesta.json();
                 const contenedor = document.getElementById('contenedor-menu');
-                
                 const categorias = [...new Set(productos.map(p => p.categoria))];
 
                 categorias.forEach(cat => {
                     const section = document.createElement('div');
                     section.className = "mb-2";
-                    
                     const catId = cat.replace(/\s+/g, '-');
 
                     section.innerHTML = `
-                        <button onclick="toggleCategory('${catId}')" id="btn-${catId}" 
-                                class="category-header w-full p-5 flex justify-between items-center">
+                        <button onclick="toggleCategory('${catId}')" id="btn-${catId}" class="category-header w-full p-5 flex justify-between items-center">
                             <span class="accent-font text-2xl tracking-wide uppercase">${cat}</span>
                             <span class="arrow text-orange-500">▼</span>
                         </button>
-                        <div id="list-${catId}" class="product-list px-4 divide-y divide-white/5">
-                            </div>
+                        <div id="list-${catId}" class="product-list px-4 divide-y divide-white/5"></div>
                     `;
 
                     const list = section.querySelector(`#list-${catId}`);
                     productos.filter(p => p.categoria === cat).forEach(p => {
                         list.innerHTML += `
-                            <div class="py-4 flex justify-between items-center menu-item" 
-                                 data-name="${p.nombre}" data-price="${p.precio}">
-                                <div class="pr-4">
+                            <div class="py-4 flex justify-between items-center menu-item" data-name="${p.nombre}" data-price="${p.precio}" data-stock="${p.stock}">
+                                <div class="pr-4 flex-1">
                                     <h3 class="font-bold text-sm uppercase text-gray-200">${p.nombre}</h3>
-                                    <p class="text-xs text-gray-500 mt-1">${p.descripcion || ''}</p>
-                                    <p class="font-black text-orange-500 mt-1">$${p.precio}</p>
+                                    <p class="text-[10px] text-gray-500 mt-1 leading-tight">${p.descripcion || ''}</p>
+                                    <div class="flex items-center gap-3 mt-1">
+                                        <p class="font-black text-orange-500">$${p.precio}</p>
+                                        ${p.stock < 5 ? `<span class="text-[9px] bg-red-900/30 text-red-400 px-2 py-0.5 rounded italic">¡Solo quedan ${p.stock}!</span>` : ''}
+                                    </div>
                                 </div>
                                 <div class="qty-control">
                                     <button onclick="changeQty(this, -1)" class="btn-action opacity-20" disabled>-</button>
-                                    <span class="qty-val font-bold text-sm">0</span>
+                                    <span class="qty-val font-bold text-sm min-w-[20px] text-center">0</span>
                                     <button onclick="changeQty(this, 1)" class="btn-action">+</button>
                                 </div>
                             </div>
@@ -144,38 +103,57 @@
                     });
                     contenedor.appendChild(section);
                 });
-            } catch (error) {
-                console.error(error);
-            }
+            } catch (error) { console.error(error); }
         }
 
         function toggleCategory(id) {
             const list = document.getElementById(`list-${id}`);
             const btn = document.getElementById(`btn-${id}`);
             const isVisible = list.style.display === 'block';
-            
-            // Cerrar otros (opcional, si quieres que solo uno esté abierto a la vez)
-            // document.querySelectorAll('.product-list').forEach(l => l.style.display = 'none');
-            // document.querySelectorAll('.category-header').forEach(b => b.classList.remove('active'));
-
             list.style.display = isVisible ? 'none' : 'block';
             btn.classList.toggle('active', !isVisible);
         }
 
         function changeQty(btn, delta) {
             const container = btn.parentElement;
+            const card = btn.closest('.menu-item');
             const valSpan = container.querySelector('.qty-val');
             const minusBtn = container.querySelectorAll('.btn-action')[0];
+            const plusBtn = container.querySelectorAll('.btn-action')[1];
             
+            const stockMax = parseInt(card.dataset.stock);
             let current = parseInt(valSpan.innerText);
+            
+            // Lógica de Stock Máximo
+            if (delta > 0 && current >= stockMax) return; 
+
             current += delta;
             if(current < 0) current = 0;
             
+            // Animación
             valSpan.innerText = current;
+            valSpan.classList.remove('animate-pop');
+            void valSpan.offsetWidth; // Reset animación
+            valSpan.classList.add('animate-pop');
+
+            // Estado de botones
             minusBtn.disabled = current === 0;
-            minusBtn.style.opacity = current === 0 ? "0.2" : "1";
+            minusBtn.style.opacity = current === 0 ? "0.1" : "1";
+            plusBtn.disabled = current >= stockMax;
+            plusBtn.style.opacity = current >= stockMax ? "0.1" : "1";
             
             updateTotal();
+        }
+
+        function clearCart() {
+            if(confirm("¿Deseas vaciar todo tu pedido?")) {
+                document.querySelectorAll('.qty-val').forEach(v => v.innerText = "0");
+                document.querySelectorAll('.btn-action').forEach(b => {
+                    if(b.innerText === "-") { b.disabled = true; b.style.opacity = "0.1"; }
+                    if(b.innerText === "+") { b.disabled = false; b.style.opacity = "1"; }
+                });
+                updateTotal();
+            }
         }
 
         function updateTotal() {
@@ -193,12 +171,12 @@
         }
 
         function sendWhatsApp() {
-            let msg = "🛒 *PEDIDO LA CHISPA*\n\n";
+            let msg = "🛒 *NUEVO PEDIDO LA CHISPA*\n\n";
             document.querySelectorAll('.menu-item').forEach(item => {
                 const qty = parseInt(item.querySelector('.qty-val').innerText);
-                if(qty > 0) msg += `• *${qty}x* ${item.dataset.name}\n`;
+                if(qty > 0) msg += `🔥 *${qty}x* ${item.dataset.name}\n`;
             });
-            msg += `\n💰 *TOTAL: ${document.getElementById('total-val').innerText}*`;
+            msg += `\n💰 *TOTAL A PAGAR: ${document.getElementById('total-val').innerText}*`;
             window.open(`https://wa.me/5516109449?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
