@@ -4,35 +4,35 @@
     "precio": "70.00",
     "descripcion": "Tradición que refresca. El sabor que ya conoces y amas, transformado en una experiencia bajo cero y extra cremosa. No olvides pedir tu leche favorita: entera o deslactosada.",
     "categoria": "BEBIDAS",
-    "stock": 100
+    "stock": 10
   },
   {
     "nombre": "Frappe Fresas con Crema (16oz)",
     "precio": "70.00",
     "descripcion": "Un abrazo helado de nostalgia. Fresas naturales seleccionadas mezcladas en una base cremosa y suave. Pídelo con tu leche favorita: entera para más cremosidad o deslactosada para un gusto ligero.",
     "categoria": "BEBIDAS",
-    "stock": 100
+    "stock": 10
   },
   {
     "nombre": "Frappe Taro (16oz)",
     "precio": "70.00",
     "descripcion": "Exótico, vibrante y místico. Un deleite color lavanda con notas sutiles a vainilla y galleta que te transportará a un mundo de sabor único. Personalízalo con leche entera o deslactosada.",
     "categoria": "BEBIDAS",
-    "stock": 100
+    "stock": 10
   },
   {
     "nombre": "Frappe Cookies and Cream (16oz)",
     "precio": "70.00",
     "descripcion": "El clásico irresistible. Trozos crujientes de galleta de chocolate sumergidos en un remolino de leche fría y crema. ¿Cómo lo prefieres hoy? Elige entre leche entera o deslactosada.",
     "categoria": "BEBIDAS",
-    "stock": 100
+    "stock": 10
   },
   {
     "nombre": "Frappe Capuchino (16oz)",
     "precio": "70.00",
     "descripcion": "El despertar de tus sentidos. La intensidad del café premium se funde con la cremosidad de la leche en un frappé equilibrado. Disfrútalo con leche entera o deslactosada.",
     "categoria": "BEBIDAS",
-    "stock": 100
+    "stock": 10
   },
   {
     "nombre": "La Justina",
@@ -49,9 +49,9 @@
     "stock": 10
   },
   {
-    "nombre": "La Totis",
+    "nombre": "El Toby",
     "precio": "50.00",
-    "descripcion": "Suave y frutal: Dulce combinación de Lechera con láminas de durazno en almíbar.",
+    "descripcion": "Tentación de chocolate: Nutella cremosa con rodajas de fresa natural y la suavidad del queso crema.",
     "categoria": "CREPAS DULCES",
     "stock": 10
   },
@@ -63,9 +63,9 @@
     "stock": 10
   },
   {
-    "nombre": "El Toby",
+    "nombre": "La Totis",
     "precio": "50.00",
-    "descripcion": "Tentación de chocolate: Nutella cremosa con rodajas de fresa natural y la suavidad del queso crema.",
+    "descripcion": "Suave y frutal: Dulce combinación de Lechera con láminas de durazno en almíbar.",
     "categoria": "CREPAS DULCES",
     "stock": 10
   },
@@ -91,20 +91,6 @@
     "stock": 10
   },
   {
-    "nombre": "Empanada de Camarón",
-    "precio": "35.00",
-    "descripcion": "Crujiente y doradita: Rellena de camarones frescos, cebolla morada, jitomate y cilantro picado.",
-    "categoria": "MARISCOS",
-    "stock": 10
-  },
-  {
-    "nombre": "Pescadilla",
-    "precio": "20.00",
-    "descripcion": "Auténtica tortilla de maíz rellena de nuestro guiso especial de pescado, frita a fuego lento hasta quedar bien doradita y crujiente.",
-    "categoria": "MARISCOS",
-    "stock": 20
-  },
-  {
     "nombre": "Coctel de Camarón Chico",
     "precio": "70.00",
     "descripcion": "El antojo perfecto: Camarones frescos en nuestra salsa coctelera artesanal con aguacate y toque cítrico.",
@@ -112,9 +98,9 @@
     "stock": 10
   },
   {
-    "nombre": "Coctel de Camarón Mediano",
-    "precio": "90.00",
-    "descripcion": "Sabor equilibrado: Porción ideal de camarón firme, cilantro, cebolla morada y abundante aguacate premium.",
+    "nombre": "Pescadilla",
+    "precio": "20.00",
+    "descripcion": "Auténtica tortilla de maíz rellena de nuestro guiso especial de pescado, frita a fuego lento hasta quedar bien doradita y crujiente.",
     "categoria": "MARISCOS",
     "stock": 10
   },
@@ -126,10 +112,24 @@
     "stock": 10
   },
   {
-    "nombre": "Pescadito Frito",
-    "precio": "35.00",
-    "descripcion": "Crocante por fuera y suave por dentro: Filete de pescado capeado con la receta secreta de La Chispa.",
+    "nombre": "Coctel de Camarón Mediano",
+    "precio": "90.00",
+    "descripcion": "Sabor equilibrado: Porción ideal de camarón firme, cilantro, cebolla morada y abundante aguacate premium.",
     "categoria": "MARISCOS",
+    "stock": 10
+  },
+  {
+    "nombre": "Empanada de Camarón",
+    "precio": "35.00",
+    "descripcion": "Crujiente y doradita: Rellena de camarones frescos, cebolla morada, jitomate y cilantro picado.",
+    "categoria": "MARISCOS",
+    "stock": 10
+  },
+  {
+    "nombre": "Combo Crepa Dulce + Bebida",
+    "precio": "100.00",
+    "descripcion": "La pareja ideal sí existe: 1 Crepa Dulce + 1 Bebida. 🤝 Olvídate de la sed y concéntrate en el sabor. ¡Consiéntete sin remordimientos!",
+    "categoria": "PAQUETES",
     "stock": 10
   },
   {
@@ -137,14 +137,7 @@
     "precio": "120.00",
     "descripcion": "¿Hambre de la buena? Aquí tienes el plan perfecto: 1 Crepa Salada + 1 Bebida. 🌯 El sabor que te llena y la frescura que te acompaña.",
     "categoria": "PAQUETES",
-    "stock": 99
-  },
-  {
-    "nombre": "Combo Crepa Dulce + Bebida",
-    "precio": "100.00",
-    "descripcion": "La pareja ideal sí existe: 1 Crepa Dulce + 1 Bebida. 🤝 Olvídate de la sed y concéntrate en el sabor. ¡Consiéntete sin remordimientos!",
-    "categoria": "PAQUETES",
-    "stock": 99
+    "stock": 10
   },
   {
     "nombre": "Orden de 3 Pescadillas",
