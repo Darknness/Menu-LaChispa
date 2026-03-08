@@ -35,9 +35,9 @@
     "stock": 10
   },
   {
-    "nombre": "La Justina",
+    "nombre": "La Totis",
     "precio": "50.00",
-    "descripcion": "Clásico irresistible: La mezcla perfecta de plátano fresco, Nutella y una base de queso crema.",
+    "descripcion": "Suave y frutal: Dulce combinación de Lechera con láminas de durazno en almíbar.",
     "categoria": "CREPAS DULCES",
     "stock": 10
   },
@@ -49,9 +49,9 @@
     "stock": 10
   },
   {
-    "nombre": "El Toby",
+    "nombre": "La Justina",
     "precio": "50.00",
-    "descripcion": "Tentación de chocolate: Nutella cremosa con rodajas de fresa natural y la suavidad del queso crema.",
+    "descripcion": "Clásico irresistible: La mezcla perfecta de plátano fresco, Nutella y una base de queso crema.",
     "categoria": "CREPAS DULCES",
     "stock": 10
   },
@@ -63,17 +63,10 @@
     "stock": 10
   },
   {
-    "nombre": "La Totis",
+    "nombre": "El Toby",
     "precio": "50.00",
-    "descripcion": "Suave y frutal: Dulce combinación de Lechera con láminas de durazno en almíbar.",
+    "descripcion": "Tentación de chocolate: Nutella cremosa con rodajas de fresa natural y la suavidad del queso crema.",
     "categoria": "CREPAS DULCES",
-    "stock": 10
-  },
-  {
-    "nombre": "La Kelly",
-    "precio": "80.00",
-    "descripcion": "Estilo italiano: Peperoni con queso manchego derretido y nuestra salsa de tomate artesanal.",
-    "categoria": "CREPAS SALADAS",
     "stock": 10
   },
   {
@@ -91,10 +84,10 @@
     "stock": 10
   },
   {
-    "nombre": "Coctel de Camarón Chico",
-    "precio": "70.00",
-    "descripcion": "El antojo perfecto: Camarones frescos en nuestra salsa coctelera artesanal con aguacate y toque cítrico.",
-    "categoria": "MARISCOS",
+    "nombre": "La Kelly",
+    "precio": "80.00",
+    "descripcion": "Estilo italiano: Peperoni con queso manchego derretido y nuestra salsa de tomate artesanal.",
+    "categoria": "CREPAS SALADAS",
     "stock": 10
   },
   {
@@ -105,9 +98,9 @@
     "stock": 10
   },
   {
-    "nombre": "Coctel de Camarón Grande",
-    "precio": "140.00",
-    "descripcion": "¡Para los amantes del mar!: Nuestra copa más generosa cargada de camarón, aguacate y el sazón secreto de la casa.",
+    "nombre": "Coctel de Camarón Chico",
+    "precio": "70.00",
+    "descripcion": "El antojo perfecto: Camarones frescos en nuestra salsa coctelera artesanal con aguacate y toque cítrico.",
     "categoria": "MARISCOS",
     "stock": 10
   },
@@ -119,17 +112,17 @@
     "stock": 10
   },
   {
-    "nombre": "Empanada de Camarón",
-    "precio": "35.00",
-    "descripcion": "Crujiente y doradita: Rellena de camarones frescos, cebolla morada, jitomate y cilantro picado.",
+    "nombre": "Coctel de Camarón Grande",
+    "precio": "140.00",
+    "descripcion": "¡Para los amantes del mar!: Nuestra copa más generosa cargada de camarón, aguacate y el sazón secreto de la casa.",
     "categoria": "MARISCOS",
     "stock": 10
   },
   {
-    "nombre": "Combo Crepa Dulce + Bebida",
-    "precio": "100.00",
-    "descripcion": "La pareja ideal sí existe: 1 Crepa Dulce + 1 Bebida. 🤝 Olvídate de la sed y concéntrate en el sabor. ¡Consiéntete sin remordimientos!",
-    "categoria": "PAQUETES",
+    "nombre": "Empanada de Camarón",
+    "precio": "35.00",
+    "descripcion": "Crujiente y doradita: Rellena de camarones frescos, cebolla morada, jitomate y cilantro picado.",
+    "categoria": "MARISCOS",
     "stock": 10
   },
   {
@@ -140,31 +133,17 @@
     "stock": 10
   },
   {
-    "nombre": "Orden de 3 Pescadillas",
-    "precio": "50.00",
-    "descripcion": "La combinación ideal para saciar tu antojo. Tres de nuestras pescadillas estrella, fritas al momento para garantizar esa textura crujiente.",
+    "nombre": "Combo Crepa Dulce + Bebida",
+    "precio": "100.00",
+    "descripcion": "La pareja ideal sí existe: 1 Crepa Dulce + 1 Bebida. 🤝 Olvídate de la sed y concéntrate en el sabor. ¡Consiéntete sin remordimientos!",
     "categoria": "PAQUETES",
     "stock": 10
   },
   {
-    "nombre": "Yakimechi con Camarones",
-    "precio": "90.00",
-    "descripcion": "Arroz frito al estilo oriental con camarón selecto y vegetales frescos de temporada.",
-    "categoria": "YAKIMECHI",
-    "stock": 10
-  },
-  {
-    "nombre": "Yakimechi con Carne de Res",
-    "precio": "70.00",
-    "descripcion": "Tradicional receta de arroz frito salteado con finos cortes de res y un toque de soya.",
-    "categoria": "YAKIMECHI",
-    "stock": 10
-  },
-  {
-    "nombre": "Yakimechi con Verduras",
+    "nombre": "Orden de 3 Pescadillas",
     "precio": "50.00",
-    "descripcion": "Mix de verduras crujientes salteadas al wok con nuestro arroz sazonado.",
-    "categoria": "YAKIMECHI",
+    "descripcion": "La combinación ideal para saciar tu antojo. Tres de nuestras pescadillas estrella, fritas al momento para garantizar esa textura crujiente.",
+    "categoria": "PAQUETES",
     "stock": 10
   }
 ]
