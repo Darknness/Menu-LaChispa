@@ -3,18 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>La Chispa - Menú Interactivo</title>
+    <title>La Chispa - Menú</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --mariscos: #00d2ff;
             --yakimechi: #ff6a00;
-            --dulce: #ff00ff;
-            --salado: #22c55e;
-            --bebidas: #8b4513;
-            --paquetes: #facc15;
-            --default: #ffa500;
         }
         body {
             font-family: 'Montserrat', sans-serif;
@@ -24,200 +18,126 @@
         }
         .accent-font { font-family: 'Bebas Neue', cursive; }
         
-        /* Navegación de categorías pegajosa */
-        #category-nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #222;
-        }
-
-        .category-pill {
-            white-space: nowrap;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border: 1px solid #333;
-            transition: all 0.3s;
-        }
-
-        /* Tarjetas de productos */
-        .menu-item {
+        /* Estilo del Acordeón */
+        .category-header {
             background: #111;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.2s, border-color 0.3s;
-            border: 1px solid #1a1a1a;
+            border-bottom: 1px solid #222;
+            transition: background 0.3s;
+        }
+        .category-header.active {
+            background: #1a1a1a;
+            border-bottom: 2px solid var(--yakimechi);
         }
         
-        .menu-item.active {
-            border-color: var(--yakimechi);
-            background: #181818;
+        .product-list {
+            display: none; /* Oculto por defecto */
+            background: #0a0a0a;
         }
 
-        .product-img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+        /* Botones de acción */
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #1a1a1a;
+            padding: 4px 8px;
             border-radius: 12px;
+            border: 1px solid #333;
         }
-
-        /* Controles de cantidad estilo App */
-        .qty-btn {
-            width: 32px;
-            height: 32px;
+        .btn-action {
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #222;
-            border-radius: 8px;
             font-weight: bold;
-            color: white;
+            font-size: 1.2rem;
+            color: var(--yakimechi);
         }
 
-        .qty-btn:disabled { opacity: 0.2; }
-
-        /* Carrito flotante */
         #cart-bar {
             position: fixed;
-            bottom: 20px;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 32px);
-            max-width: 500px;
+            width: 90%;
+            max-width: 450px;
             background: var(--yakimechi);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 106, 0, 0.4);
+            border-radius: 15px;
             display: none;
             z-index: 100;
+            box-shadow: 0 8px 25px rgba(255, 106, 0, 0.4);
         }
 
-        /* Scroll suave */
-        html { scroll-behavior: smooth; }
-        
-        /* Ocultar scrollbar de categorías */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Animación de flecha */
+        .arrow { transition: transform 0.3s; }
+        .active .arrow { transform: rotate(180deg); }
     </style>
 </head>
 <body>
 
-    <header class="pt-10 pb-6 text-center px-4">
-        <div class="relative inline-block">
-            <div class="absolute inset-0 bg-orange-500 blur-3xl opacity-20 rounded-full"></div>
-            <img src="La%20Chispa%20Logo.png" 
-                 onerror="this.src='https://raw.githubusercontent.com/lucide-react/lucide/main/icons/utensils.svg'; this.style.filter='invert(1)'"
-                 alt="La Chispa" class="relative w-32 h-32 mx-auto object-contain mb-4">
-        </div>
-        <h1 class="accent-font text-5xl text-orange-500 tracking-tight">LA CHISPA</h1>
-        <p class="text-[9px] tracking-[0.5em] text-gray-500 uppercase font-black">Querétaro · El sabor que te hace volver</p>
+    <header class="py-8 text-center px-4">
+        <img src="La%20Chispa%20Logo.png" 
+             onerror="this.src='https://raw.githubusercontent.com/lucide-react/lucide/main/icons/utensils.svg'; this.style.filter='invert(1)'"
+             class="w-24 h-24 mx-auto mb-2 object-contain">
+        <h1 class="accent-font text-5xl text-orange-500">LA CHISPA</h1>
+        <p class="text-[10px] tracking-widest text-gray-500 uppercase font-bold">Menú Digital</p>
     </header>
 
-    <nav id="category-nav" class="px-4 py-4 mb-6">
-        <div id="cat-list" class="flex gap-3 overflow-x-auto no-scrollbar">
-            </div>
-    </nav>
-
-    <main id="contenedor-menu" class="px-4 space-y-12 pb-32">
-        <div class="text-center py-20">
-            <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-orange-500 mx-auto mb-4"></div>
-            <p class="text-gray-400 text-sm">Preparando el menú...</p>
-        </div>
-    </main>
+    <main id="contenedor-menu" class="pb-32">
+        </main>
 
     <div id="cart-bar" class="p-4">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-black/20 p-2 rounded-lg">
-                    <span id="items-count" class="font-black text-black">0</span>
-                </div>
-                <div>
-                    <p class="text-[10px] text-black/60 font-bold uppercase leading-none">Total</p>
-                    <p id="total-val" class="text-xl font-black text-black leading-tight">$0.00</p>
-                </div>
+        <div class="flex justify-between items-center text-black">
+            <div>
+                <span id="items-count" class="font-black bg-black/20 px-2 py-1 rounded text-sm">0</span>
+                <span id="total-val" class="text-xl font-black ml-2">$0.00</span>
             </div>
-            <button onclick="sendWhatsApp()" class="bg-black text-white px-6 py-3 rounded-xl font-black uppercase text-xs">
-                ORDENAR POR WHATSAPP
+            <button onclick="sendWhatsApp()" class="font-black uppercase text-xs border-2 border-black px-4 py-2 rounded-lg">
+                PEDIR AHORA
             </button>
         </div>
     </div>
 
     <script>
-        // Imágenes por defecto según palabra clave en categoría
-        const placeholders = {
-            mariscos: "https://images.unsplash.com/photo-1551443878-4001e9596695?w=400&q=80",
-            yakimechi: "https://images.unsplash.com/photo-1512058560550-42749969a6b7?w=400&q=80",
-            dulce: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&q=80",
-            salado: "https://images.unsplash.com/photo-1621342621415-8f6479008985?w=400&q=80",
-            bebidas: "https://images.unsplash.com/photo-1544145945-f904253d0c7b?w=400&q=80",
-            default: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80"
-        };
-
         async function cargarMenu() {
             try {
                 const respuesta = await fetch('productos.json');
                 const productos = await respuesta.json();
                 const contenedor = document.getElementById('contenedor-menu');
-                const catList = document.getElementById('cat-list');
                 
-                contenedor.innerHTML = '';
-                catList.innerHTML = '';
-
                 const categorias = [...new Set(productos.map(p => p.categoria))];
 
                 categorias.forEach(cat => {
-                    const idCat = cat.toLowerCase().replace(/\s+/g, '-');
+                    const section = document.createElement('div');
+                    section.className = "mb-2";
                     
-                    // 1. Crear botón de categoría
-                    const pill = document.createElement('a');
-                    pill.href = `#${idCat}`;
-                    pill.className = "category-pill border-orange-500/30 text-gray-400";
-                    pill.innerText = cat;
-                    catList.appendChild(pill);
-
-                    // 2. Crear sección
-                    const section = document.createElement('section');
-                    section.id = idCat;
-                    
-                    let imgPlaceholder = placeholders.default;
-                    if(idCat.includes('marisco')) imgPlaceholder = placeholders.mariscos;
-                    if(idCat.includes('yakimechi')) imgPlaceholder = placeholders.yakimechi;
-                    if(idCat.includes('dulce')) imgPlaceholder = placeholders.dulce;
-                    if(idCat.includes('salado')) imgPlaceholder = placeholders.salado;
+                    const catId = cat.replace(/\s+/g, '-');
 
                     section.innerHTML = `
-                        <div class="flex items-center gap-4 mb-6">
-                            <h2 class="accent-font text-3xl text-white tracking-wide">${cat}</h2>
-                            <div class="h-[1px] flex-1 bg-gradient-to-r from-orange-500/50 to-transparent"></div>
-                        </div>
-                        <div class="grid gap-4"></div>
+                        <button onclick="toggleCategory('${catId}')" id="btn-${catId}" 
+                                class="category-header w-full p-5 flex justify-between items-center">
+                            <span class="accent-font text-2xl tracking-wide uppercase">${cat}</span>
+                            <span class="arrow text-orange-500">▼</span>
+                        </button>
+                        <div id="list-${catId}" class="product-list px-4 divide-y divide-white/5">
+                            </div>
                     `;
 
-                    const grid = section.querySelector('div');
-
+                    const list = section.querySelector(`#list-${catId}`);
                     productos.filter(p => p.categoria === cat).forEach(p => {
-                        grid.innerHTML += `
-                            <div class="menu-item p-3 flex gap-4 items-center" 
+                        list.innerHTML += `
+                            <div class="py-4 flex justify-between items-center menu-item" 
                                  data-name="${p.nombre}" data-price="${p.precio}">
-                                
-                                <img src="${imgPlaceholder}" class="product-img bg-gray-900" alt="${p.nombre}">
-                                
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="font-bold text-sm text-gray-100 truncate uppercase">${p.nombre}</h3>
-                                    <p class="text-[10px] text-gray-500 leading-tight mt-1 line-clamp-2">${p.descripcion || ''}</p>
-                                    <div class="mt-2 flex items-center justify-between">
-                                        <span class="font-black text-orange-500 text-lg">$${p.precio}</span>
-                                        
-                                        <div class="flex items-center gap-3">
-                                            <button onclick="changeQty(this, -1)" class="qty-btn" disabled>-</button>
-                                            <span class="qty-val font-bold text-sm text-gray-400">0</span>
-                                            <button onclick="changeQty(this, 1)" class="qty-btn" style="background: #333">+</button>
-                                        </div>
-                                    </div>
+                                <div class="pr-4">
+                                    <h3 class="font-bold text-sm uppercase text-gray-200">${p.nombre}</h3>
+                                    <p class="text-xs text-gray-500 mt-1">${p.descripcion || ''}</p>
+                                    <p class="font-black text-orange-500 mt-1">$${p.precio}</p>
+                                </div>
+                                <div class="qty-control">
+                                    <button onclick="changeQty(this, -1)" class="btn-action opacity-20" disabled>-</button>
+                                    <span class="qty-val font-bold text-sm">0</span>
+                                    <button onclick="changeQty(this, 1)" class="btn-action">+</button>
                                 </div>
                             </div>
                         `;
@@ -226,39 +146,40 @@
                 });
             } catch (error) {
                 console.error(error);
-                contenedor.innerHTML = `<p class="text-red-500 text-center">Error al cargar productos.</p>`;
             }
+        }
+
+        function toggleCategory(id) {
+            const list = document.getElementById(`list-${id}`);
+            const btn = document.getElementById(`btn-${id}`);
+            const isVisible = list.style.display === 'block';
+            
+            // Cerrar otros (opcional, si quieres que solo uno esté abierto a la vez)
+            // document.querySelectorAll('.product-list').forEach(l => l.style.display = 'none');
+            // document.querySelectorAll('.category-header').forEach(b => b.classList.remove('active'));
+
+            list.style.display = isVisible ? 'none' : 'block';
+            btn.classList.toggle('active', !isVisible);
         }
 
         function changeQty(btn, delta) {
             const container = btn.parentElement;
-            const card = btn.closest('.menu-item');
             const valSpan = container.querySelector('.qty-val');
-            const minusBtn = container.querySelectorAll('.qty-btn')[0];
+            const minusBtn = container.querySelectorAll('.btn-action')[0];
             
             let current = parseInt(valSpan.innerText);
             current += delta;
-
             if(current < 0) current = 0;
             
             valSpan.innerText = current;
-            
-            if(current > 0) {
-                card.classList.add('active');
-                valSpan.classList.add('text-orange-500');
-                minusBtn.disabled = false;
-            } else {
-                card.classList.remove('active');
-                valSpan.classList.remove('text-orange-500');
-                minusBtn.disabled = true;
-            }
+            minusBtn.disabled = current === 0;
+            minusBtn.style.opacity = current === 0 ? "0.2" : "1";
             
             updateTotal();
         }
 
         function updateTotal() {
-            let total = 0;
-            let count = 0;
+            let total = 0, count = 0;
             document.querySelectorAll('.menu-item').forEach(item => {
                 const qty = parseInt(item.querySelector('.qty-val').innerText);
                 if(qty > 0) {
@@ -266,21 +187,18 @@
                     count += qty;
                 }
             });
-            
             document.getElementById('total-val').innerText = `$${total.toFixed(2)}`;
             document.getElementById('items-count').innerText = count;
             document.getElementById('cart-bar').style.display = count > 0 ? 'block' : 'none';
         }
 
         function sendWhatsApp() {
-            let msg = "🔥 *NUEVO PEDIDO - LA CHISPA* 🔥\n\n";
+            let msg = "🛒 *PEDIDO LA CHISPA*\n\n";
             document.querySelectorAll('.menu-item').forEach(item => {
                 const qty = parseInt(item.querySelector('.qty-val').innerText);
-                if(qty > 0) {
-                    msg += `🔸 *${qty}x* ${item.dataset.name}\n`;
-                }
+                if(qty > 0) msg += `• *${qty}x* ${item.dataset.name}\n`;
             });
-            msg += `\n💵 *TOTAL: ${document.getElementById('total-val').innerText}*`;
+            msg += `\n💰 *TOTAL: ${document.getElementById('total-val').innerText}*`;
             window.open(`https://wa.me/5516109449?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
